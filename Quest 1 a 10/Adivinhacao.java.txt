@@ -1,0 +1,41 @@
+/*
+ * 2 - Escreva um programa em Java que simula um jogo de adivinhação. O programa deve gerar um número aleatório entre 1 e 100 e solicitar ao usuário que adivinhe o número.
+ */
+package com.mycompany.poo2java;
+
+/**
+ *
+ * @author agnes
+ */
+import java.util.Random;
+import java.util.Scanner;
+
+public class Adivinhacao {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int numeroSecreto = rand.nextInt(100) + 1; // gera um número aleatório entre 1 e 100
+        int palpite;
+        int tentativas = 0;
+        boolean acertou = false;
+
+        try (Scanner entrada = new Scanner(System.in)) {
+            System.out.println("Bem-vindo ao jogo de adivinhação!");
+            System.out.println("Tente adivinhar o número secreto entre 1 e 100:");
+            
+            while (!acertou) {
+                System.out.print("Digite o seu palpite: ");
+                palpite = entrada.nextInt();
+                tentativas++;
+                
+                if (palpite == numeroSecreto) {
+                    acertou = true;
+                    System.out.printf("Parabéns, você acertou em %d tentativas!\n", tentativas);
+                } else if (palpite < numeroSecreto) {
+                    System.out.println("O número secreto é maior.");
+                } else {
+                    System.out.println("O número secreto é menor.");
+                }
+            }
+        }
+    }
+}

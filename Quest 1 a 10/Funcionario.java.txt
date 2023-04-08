@@ -1,0 +1,36 @@
+/*
+ * 10.	Crie uma classe "Funcionario" com os atributos "nome", "salario"
+e "cargo". Escreva um método que determine o imposto de renda a ser pago 
+pelo funcionário, considerando que a alíquota é de 10% para salários até 
+R$ 1.500,00 e de 20% para salários acima disso.
+ */
+package com.mycompany.mavenproject1;
+
+public class Funcionario {
+    private final String nome;
+    private final double salario;
+    private final String cargo;
+
+    public Funcionario(String nome, double salario, String cargo) {
+        this.nome = nome;
+        this.salario = salario;
+        this.cargo = cargo;
+    }
+
+    public double calcularImpostoDeRenda() {
+        if (salario <= 1500.0) {
+            return salario * 0.1;
+        } else {
+            return salario * 0.2;
+        }
+    }
+
+    public static void main(String[] args) {
+        Funcionario funcionario = new Funcionario("João", 2000.0, "Gerente");
+
+        System.out.println("Nome do funcionário: " + funcionario.nome);
+        System.out.println("Salário do funcionário: R$ " + funcionario.salario);
+        System.out.println("Cargo do funcionário: " + funcionario.cargo);
+        System.out.println("Imposto de renda a ser pago: R$ " + funcionario.calcularImpostoDeRenda());
+    }
+}

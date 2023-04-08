@@ -1,0 +1,32 @@
+/*
+ * 47.	Escreva um programa que leia uma frase e verifique se ela é 
+um palíndromo, ou seja, se pode ser lida da mesma forma da esquerda 
+para a direita e da direita para a esquerda.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class Palindromo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite uma frase: ");
+        String frase = sc.nextLine();
+
+        // Remove espaços e pontuações e converte para minúsculas
+        frase = frase.replaceAll("[^a-zA-Z]", "").toLowerCase();
+
+        // Inverte a frase
+        String inverso = new StringBuilder(frase).reverse().toString();
+
+        // Compara a frase original com a sua versão invertida
+        if (frase.equals(inverso)) {
+            System.out.println("A frase é um palíndromo.");
+        } else {
+            System.out.println("A frase não é um palíndromo.");
+        }
+
+        sc.close();
+    }
+}

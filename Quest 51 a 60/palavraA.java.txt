@@ -1,0 +1,28 @@
+/*
+ * 59.	Escreva um programa que leia uma sequência de palavras e
+determine quantas palavras começam com a letra "a".
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class palavraA {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite uma sequência de palavras separadas por espaço: ");
+        String sequencia = sc.nextLine();
+        String[] palavras = sequencia.split(" ");
+
+        int quantidadePalavrasA = 0;
+
+        for (String palavra : palavras) {
+            if (palavra.toLowerCase().startsWith("a")) {
+                quantidadePalavrasA++;
+            }
+        }
+
+        System.out.println("Foram lidas " + quantidadePalavrasA + " palavras que começam com a letra 'a'.");
+        sc.close();
+    }
+}

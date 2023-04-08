@@ -1,0 +1,28 @@
+/*
+ * 58.	Escreva um programa que leia uma sequência de números
+e determine quantos números divisíveis por 3 e por 5 foram lidos.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class Divi35 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite uma sequência de números separados por espaço: ");
+        String entrada = scanner.nextLine();
+
+        String[] numeros = entrada.split(" ");
+        int quantidadeDivisiveis = 0;
+
+        for (String numero : numeros) {
+            int n = Integer.parseInt(numero);
+            if (n % 3 == 0 && n % 5 == 0) {
+                quantidadeDivisiveis++;
+            }
+        }
+
+        System.out.println("Foram lidos " + quantidadeDivisiveis + " números divisíveis por 3 e por 5.");
+    }
+}

@@ -1,0 +1,31 @@
+S/*
+ * 15.	Escreva um programa que leia um número inteiro e determine se 
+ele é primo ou não. Utilize um loop for e estruturas condicionais.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class verificaPrimo {
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Digite um número inteiro: ");
+            var num = sc.nextInt();
+            
+            boolean primo = true;
+            
+            for (int i = 2; i < num; i++) {
+                if (num % i == 0) {
+                    primo = false;
+                    break;
+                }
+            }
+            
+            if (primo) {
+                System.out.println(num + " é primo.");
+            } else {
+                System.out.println(num + " não é primo.");
+            }
+        }
+    }
+}

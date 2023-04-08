@@ -1,0 +1,38 @@
+/*
+ * 21.	Escreva um programa que leia uma sequência de números
+inteiros e determine o maior e o menor número da sequência.
+Utilize estruturas condicionais.
+ */
+package com.mycompany.mavenproject1;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite a quantidade de números: ");
+        int quantidade = scanner.nextInt();
+
+        int maior = Integer.MIN_VALUE;
+        int menor = Integer.MAX_VALUE;
+
+        for (int i = 1; i <= quantidade; i++) {
+            System.out.printf("Digite o %dº número: ", i);
+            int numero = scanner.nextInt();
+
+            if (numero > maior) {
+                maior = numero;
+            }
+
+            if (numero < menor) {
+                menor = numero;
+            }
+        }
+
+        System.out.printf("Maior número: %d\n", maior);
+        System.out.printf("Menor número: %d\n", menor);
+
+        scanner.close();
+    }
+}

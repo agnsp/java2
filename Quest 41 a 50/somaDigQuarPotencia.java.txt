@@ -1,0 +1,24 @@
+/*
+ * 41.	Escreva um programa que leia um número inteiro e determine a soma de 
+seus dígitos elevados à quarta potência. Por exemplo, se o número lido for 
+1234, a soma será 1^4 + 2^4 + 3^4 + 4^4 = 354. Utilize funções do Java 8.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+import java.util.stream.Stream;
+
+public class somaDigQuarPotencia {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite um número inteiro: ");
+        int num = sc.nextInt();
+
+        int soma = Stream.of(String.valueOf(num).split(""))
+                .mapToInt(Integer::parseInt)
+                .map(digito -> (int) Math.pow(digito, 4))
+                .sum();
+
+        System.out.println("A soma dos dígitos elevados à quarta potência é: " + soma);
+    }
+}

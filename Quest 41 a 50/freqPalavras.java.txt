@@ -1,0 +1,39 @@
+/*
+ * 43.	Escreva um programa que leia um texto e determine a frequência de 
+cada palavra no texto. Utilize expressões regulares do Java.
+ */
+package com.mycompany.poo2java;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class feqPalavras {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String texto = input.nextLine();
+
+        // Cria uma expressão regular para encontrar palavras
+        Pattern pattern = Pattern.compile("\\w+");
+        Matcher matcher = pattern.matcher(texto);
+
+        // Cria um mapa para armazenar a frequência de cada palavra
+        Map<String, Integer> frequencia = new HashMap<>();
+
+        // Itera sobre as palavras encontradas na expressão regular
+        while (matcher.find()) {
+            String palavra = matcher.group().toLowerCase();
+            int count = frequencia.getOrDefault(palavra, 0);
+            frequencia.put(palavra, count + 1);
+        }
+
+        // Imprime a frequência de cada palavra
+        for (Map.Entry<String, Integer> entry : frequencia.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
+}

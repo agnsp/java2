@@ -1,0 +1,33 @@
+/*
+ * 11. Escreva um programa que leia uma sequência de números inteiros e imprima a soma dos números pares e a soma dos números ímpares. Utilize um loop for e estruturas condicionais.
+
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class somaParesImpares {
+    public static void main(String[] args) {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("Digite a quantidade de números a serem lidos: ");
+            int n = input.nextInt();
+            
+            int somaPares = 0;
+            int somaImpares = 0;
+            
+            for (int i = 1; i <= n; i++) {
+                System.out.print("Digite o " + i + "º número: ");
+                int num = input.nextInt();
+                
+                if (num % 2 == 0) { // número par
+                    somaPares += num;
+                } else { // número ímpar
+                    somaImpares += num;
+                }
+            }
+            
+            System.out.println("Soma dos números pares: " + somaPares);
+            System.out.println("Soma dos números ímpares: " + somaImpares);
+        }
+    }
+}

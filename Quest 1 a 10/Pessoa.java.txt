@@ -1,0 +1,30 @@
+/*
+ * 8.	Crie uma classe "Pessoa" com os atributos "nome", "idade" e "sexo".
+Escreva um método que determine se a pessoa é maior de idade ou não,
+considerando que a maioridade é alcançada aos 18 anos.this template
+ */
+package com.mycompany.mavenproject1;
+
+public class Pessoa {
+    private final String nome;
+    private final int idade;
+    private final char sexo;
+
+    public Pessoa(String nome, int idade, char sexo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.sexo = sexo;
+    }
+
+    public boolean ehMaiorDeIdade() {
+        return idade >= 18;
+    }
+
+    public static void main(String[] args) {
+        Pessoa p1 = new Pessoa("Maria", 20, 'F');
+        Pessoa p2 = new Pessoa("João", 16, 'M');
+
+        System.out.println("A pessoa " + p1.nome + " é maior de idade? " + p1.ehMaiorDeIdade());
+        System.out.println("A pessoa " + p2.nome + " é maior de idade? " + p2.ehMaiorDeIdade());
+    }
+}

@@ -1,0 +1,42 @@
+/*
+ * 1. Escreva um programa em Java que recebe uma sequência de palavras do usuário e imprime a palavra que aparece com mais frequência, ignorando maiúsculas e minúsculas.
+ */
+
+package com.mycompany.poo2java;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ * @author agnes
+ */
+public class SeqPalavras {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Digite uma sequência de palavras separadas por espaços: ");
+        String sequencia = input.nextLine().toLowerCase(); // transforma a sequência em minúsculas
+        String[] palavras = sequencia.split(" "); // separa a sequência em um array de palavras
+        Map<String, Integer> frequencias = new HashMap<>(); // mapa para armazenar as frequências de cada palavra
+        for (String palavra : palavras) {
+            if (frequencias.containsKey(palavra)) { // se a palavra já existe no mapa, incrementa sua frequência
+                frequencias.put(palavra, frequencias.get(palavra) + 1);
+            } else { // se a palavra não existe no mapa, adiciona com frequência 1
+                frequencias.put(palavra, 1);
+            }
+        }
+        String palavraMaisFrequente = "";
+        int frequenciaMaxima = 0;
+        for (Map.Entry<String, Integer> entrada : frequencias.entrySet()) {
+            String palavra = entrada.getKey();
+            int frequencia = entrada.getValue();
+            if (frequencia > frequenciaMaxima) { // se a frequência da palavra atual é maior que a frequência máxima
+                palavraMaisFrequente = palavra;
+                frequenciaMaxima = frequencia;
+            }
+        }
+        System.out.println("A palavra mais frequente é: " + palavraMaisFrequente);
+    }
+}
+

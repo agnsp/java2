@@ -1,0 +1,39 @@
+/*
+ * 65.	Escreva um programa que leia um número inteiro e 
+determine se ele é um número de Kaprekar. Um número de Kaprekar 
+é um número não negativo cujo quadrado pode ser dividido em dois
+números cuja soma é igual ao número original. Por exemplo,
+o número 45 é um número de Kaprekar, pois 45² = 2025 e 20 + 25 = 45
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numKaprekar {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Digite um número inteiro: ");
+        int numero = sc.nextInt();
+        
+        int quadrado = numero * numero;
+        String strQuadrado = String.valueOf(quadrado);
+        int tamanho = strQuadrado.length();
+        
+        for (int i = 1; i < tamanho; i++) {
+            String parte1 = strQuadrado.substring(0, i);
+            String parte2 = strQuadrado.substring(i);
+            
+            int somaPartes = Integer.parseInt(parte1) + Integer.parseInt(parte2);
+            
+            if (somaPartes == numero) {
+                System.out.println(numero + " é um número de Kaprekar.");
+                sc.close();
+                return;
+            }
+        }
+        
+        System.out.println(numero + " não é um número de Kaprekar.");
+        sc.close();
+    }
+}

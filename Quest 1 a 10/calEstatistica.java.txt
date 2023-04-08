@@ -1,0 +1,54 @@
+/*
+ * 3.	Escreva um programa em Java que recebe uma sequência de números 
+do usuário e imprime a média, o desvio padrão e a mediana dos números.
+ */
+package com.mycompany.mavenproject1;
+
+import java.util.*;
+
+public class calEstatistica {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Ler a sequência de números do usuário
+        System.out.print("Digite a sequência de números separados por espaço: ");
+        String input = sc.nextLine();
+        String[] numbers = input.split(" ");
+
+        // Converter os números para double
+        double[] doubleNumbers = new double[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            doubleNumbers[i] = Double.parseDouble(numbers[i]);
+        }
+
+        // Ordenar a sequência de números
+        Arrays.sort(doubleNumbers);
+
+        // Calcular a média
+        double sum = 0;
+        for (double number : doubleNumbers) {
+            sum += number;
+        }
+        double media = sum / doubleNumbers.length;
+
+        // Calcular o desvio padrão
+        double variance = 0;
+        for (double number : doubleNumbers) {
+            variance += Math.pow(number - media, 2);
+        }
+        double desvioPadrao = Math.sqrt(variance / doubleNumbers.length);
+
+        // Calcular a mediana
+        double mediana;
+        if (doubleNumbers.length % 2 == 0) {
+            mediana = (doubleNumbers[doubleNumbers.length / 2 - 1] + doubleNumbers[doubleNumbers.length / 2]) / 2;
+        } else {
+            mediana = doubleNumbers[doubleNumbers.length / 2];
+        }
+
+        // Imprimir os resultados
+        System.out.println("Média: " + media);
+        System.out.println("Desvio Padrão: " + desvioPadrao);
+        System.out.println("Mediana: " + mediana);
+    }
+}

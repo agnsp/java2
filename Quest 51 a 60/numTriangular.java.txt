@@ -1,0 +1,29 @@
+/*
+ * 51.	Escreva um programa que leia um número inteiro e determine se 
+ele é um número triangular, ou seja, se é igual ao produto de três 
+números consecutivos.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numTriangular {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite um número inteiro: ");
+        int num = sc.nextInt();
+        
+        // Encontra n a partir da fórmula Tn = n * (n+1) / 2
+        int n = (int) Math.floor((-1 + Math.sqrt(1 + 8*num)) / 2);
+        
+        // Verifica se Tn é igual ao número dado
+        if (n*(n+1)/2 == num) {
+            System.out.println(num + " é um número triangular.");
+        } else {
+            System.out.println(num + " não é um número triangular.");
+        }
+    }
+
+}
+

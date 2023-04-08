@@ -1,0 +1,45 @@
+/*
+ * 12.	Crie uma classe "ContaBancaria" com os atributos "titular", "saldo"
+e "limite". Escreva um método que permita sacar dinheiro da conta, 
+considerando que o saldo não pode ficar negativo e que o valor do 
+saque não pode ser maior que o saldo mais o limite.
+ */
+package com.mycompany.mavenproject1;
+
+public class contaBancaria {
+    private final String titular;
+    private double saldo;
+    private final double limite;
+
+    public ContaBancaria(String titular, double saldo, double limite) {
+        this.titular = titular;
+        this.saldo = saldo;
+        this.limite = limite;
+    }
+
+    public boolean sacar(double valor) {
+        if (valor <= saldo + limite && valor > 0) {
+            saldo -= valor;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        ContaBancaria conta = new ContaBancaria("João", 1000.0, 500.0);
+
+        System.out.println("Titular da conta: " + conta.titular);
+        System.out.println("Saldo da conta: R$ " + conta.saldo);
+        System.out.println("Limite da conta: R$ " + conta.limite);
+
+        if (conta.sacar(1500.0)) {
+            System.out.println("Saque realizado com sucesso!");
+        } else {
+            System.out.println("Não foi possível realizar o saque!");
+        }
+
+        System.out.println("Saldo atual da conta: R$ " + conta.saldo);
+    }
+}
+

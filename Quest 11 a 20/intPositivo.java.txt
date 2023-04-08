@@ -1,0 +1,41 @@
+/*
+ *13. Escreva um programa que leia um número inteiro positivo e imprima todos os
+números primos menores ou iguais a ele. Utilize um loop while e estruturas 
+condicionais.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author agnes
+ */
+public class intPositivo {
+    public static void main(String[] args) {
+        int n;
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Digite um número inteiro positivo: ");
+            n = sc.nextInt();
+        }
+        int i = 2;
+        while (i <= n) {
+            if (ehPrimo(i)) {
+                System.out.print(i + " ");
+            }
+            i++;
+        }
+    }
+
+    public static boolean ehPrimo(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}

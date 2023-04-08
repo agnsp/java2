@@ -1,0 +1,43 @@
+/*
+ * 56.	Escreva um programa que leia um número inteiro e determine se ele
+é um número feliz. Um número é feliz se, ao ser substituído pela soma dos
+quadrados de seus dígitos, repetidas vezes, o resultado é igual a 1.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numFeliz {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite um número inteiro: ");
+        int numero = scanner.nextInt();
+
+        boolean feliz = false;
+
+        while (true) {
+            int somaQuadrados = 0;
+            while (numero != 0) {
+                int digito = numero % 10;
+                somaQuadrados += digito * digito;
+                numero /= 10;
+            }
+            if (somaQuadrados == 1) {
+                feliz = true;
+                break;
+            } else if (somaQuadrados == 4) {
+                feliz = false;
+                break;
+            } else {
+                numero = somaQuadrados;
+            }
+        }
+
+        if (feliz) {
+            System.out.println("O número é feliz!");
+        } else {
+            System.out.println("O número não é feliz.");
+        }
+    }
+}

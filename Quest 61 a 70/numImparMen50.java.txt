@@ -1,0 +1,29 @@
+/*
+ * 63.	Escreva um programa que leia uma sequência de números e
+determine quantos números são ímpares e menores que 50.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numImparMen50 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n, count = 0;
+        
+        System.out.print("Digite a quantidade de números: ");
+        n = sc.nextInt();
+        
+        for (int i = 1; i <= n; i++) {
+            System.out.printf("Digite o %dº número: ", i);
+            int num = sc.nextInt();
+            
+            if (num < 50 && num % 2 != 0) {
+                count++;
+            }
+        }
+        
+        System.out.printf("Foram digitados %d números ímpares e menores que 50.%n", count);
+        sc.close();
+    }
+}

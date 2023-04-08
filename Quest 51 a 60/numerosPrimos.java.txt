@@ -1,0 +1,40 @@
+/*
+ * 57.	Escreva um programa que leia uma sequência de números
+e determine quantos números primos foram lidos.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numerosPrimos {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite uma sequência de números separados por espaço: ");
+        String entrada = scanner.nextLine();
+
+        String[] numeros = entrada.split(" ");
+        int quantidadePrimos = 0;
+
+        for (String numero : numeros) {
+            int n = Integer.parseInt(numero);
+            if (ehPrimo(n)) {
+                quantidadePrimos++;
+            }
+        }
+
+        System.out.println("Foram lidos " + quantidadePrimos + " números primos.");
+    }
+
+    public static boolean ehPrimo(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}

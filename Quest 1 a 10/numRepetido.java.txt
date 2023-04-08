@@ -1,0 +1,39 @@
+/*
+ *  6.	Escreva um programa em Java que recebe uma sequência de números
+do usuário e imprime o número que mais se repete.
+ */
+package com.mycompany.poo2java;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class numRepetido {
+    public static void main(String[] args) {
+        try (Scanner entrada = new Scanner(System.in)) {
+            System.out.print("Digite a sequência de números separados por espaço: ");
+            String[] numeros = entrada.nextLine().split(" ");
+            
+            Map<String, Integer> contador = new HashMap<>();
+            for (String numero : numeros) {
+                if (contador.containsKey(numero)) {
+                    contador.put(numero, contador.get(numero) + 1);
+                } else {
+                    contador.put(numero, 1);
+                }
+            }
+            
+            String maisRepetido = "";
+            int maiorContagem = 0;
+            for (Map.Entry<String, Integer> entradaContador : contador.entrySet()) {
+                if (entradaContador.getValue() > maiorContagem) {
+                    maisRepetido = entradaContador.getKey();
+                    maiorContagem = entradaContador.getValue();
+                }
+            }
+            
+            System.out.println("O número que mais se repete é: " + maisRepetido);
+        }
+    }
+}
+

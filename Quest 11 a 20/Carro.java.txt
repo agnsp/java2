@@ -1,0 +1,33 @@
+
+  16.	Crie uma classe Carro com os atributos marca, modelo 
+e ano. Escreva um método que determine se o carro é antigo ou não,
+considerando que um carro é considerado antigo se tiver mais de 10 anos.
+ 
+package com.mycompany.mavenproject1;
+
+import java.util.Calendar;
+
+public class Carro {
+    private final String marca;
+    private final String modelo;
+    private final int ano;
+
+    public Carro(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    public boolean ehAntigo() {
+        int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
+        return (anoAtual - ano)  10;
+    }
+
+    public static void main(String[] args) {
+        Carro c1 = new Carro(Chevrolet, Celta, 2005);
+        Carro c2 = new Carro(Fiat, Palio, 2015);
+
+        System.out.println(O carro  + c1.marca +   + c1.modelo +  é antigo  + c1.ehAntigo());
+        System.out.println(O carro  + c2.marca +   + c2.modelo +  é antigo  + c2.ehAntigo());
+    }
+}

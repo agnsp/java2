@@ -1,0 +1,28 @@
+/*
+ * 50.	Escreva um programa que leia um número inteiro e determine se
+ele é um número perfeito, ou seja, se é igual à soma de seus divisores próprios.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numPerfeito {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite um número inteiro: ");
+        int num = sc.nextInt();
+
+        int soma = 0;
+        for (int i = 1; i < num; i++) {
+            if (num % i == 0) {
+                soma += i;
+            }
+        }
+
+        if (soma == num) {
+            System.out.println(num + " é um número perfeito.");
+        } else {
+            System.out.println(num + " não é um número perfeito.");
+        }
+    }
+}

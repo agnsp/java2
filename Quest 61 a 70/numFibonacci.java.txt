@@ -1,0 +1,41 @@
+/*
+ * 66.	Escreva um programa que leia um número inteiro e determine se ele
+é um número de Fibonacci. Um número é um número de Fibonacci se ele 
+aparece na sequência de Fibonacci (1, 1, 2, 3, 5, 8, 13, 21, ...),
+que começa com os dois primeiros números iguais a 1 e os demais 
+iguais à soma dos dois anteriores.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numFibonacci {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int num = sc.nextInt();
+
+        if (num == 1 || num == 2) {
+            System.out.println(num + " é um número de Fibonacci.");
+        } else {
+            int a = 1;
+            int b = 1;
+            int fib = 0;
+
+            while (fib < num) {
+                fib = a + b;
+                a = b;
+                b = fib;
+            }
+
+            if (fib == num) {
+                System.out.println(num + " é um número de Fibonacci.");
+            } else {
+                System.out.println(num + " não é um número de Fibonacci.");
+            }
+        }
+
+        sc.close();
+    }
+}

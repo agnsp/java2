@@ -1,0 +1,43 @@
+/*
+ * 19.	Escreva um programa que leia um número inteiro e determine se 
+ele é um número primo de Mersenne ou não. Um número primo de Mersenne 
+é um número primo da forma 2^p - 1, onde p é também um número primo.
+Utilize estruturas condicionais e loops.
+ */
+package com.mycompany.mavenproject1;
+
+
+import java.util.Scanner;
+
+public class primoDeMersenne {
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Digite um número inteiro: ");
+            int n = sc.nextInt();
+            
+            // Verifica se o número é um número primo
+            boolean ehPrimo = true;
+            for (int i = 2; i < n; i++) {
+                if (n % i == 0) {
+                    ehPrimo = false;
+                    break;
+                }
+            }
+            
+            if (ehPrimo) {
+                // Verifica se o número é um número primo de Mersenne
+                int p = 2;
+                while (Math.pow(2, p) - 1 <= n) {
+                    if (Math.pow(2, p) - 1 == n) {
+                        System.out.println(n + " é um número primo de Mersenne!");
+                        return;
+                    }
+                    p++;
+                }
+                System.out.println(n + " não é um número primo de Mersenne.");
+            } else {
+                System.out.println(n + " não é um número primo.");
+            }
+        }
+    }
+}

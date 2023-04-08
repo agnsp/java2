@@ -1,0 +1,37 @@
+/*
+ * 61.	Escreva um programa que leia um número inteiro e determine
+se ele é um número de Armstrong. Um número é um número de Armstrong
+se a soma dos seus dígitos elevados à sua quantidade de dígitos é
+igual ao número original. Por exemplo, o número 153 é um número de
+Armstrong, pois 1³ + 5³ + 3³ = 153.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class numArmstrong {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int numero = sc.nextInt();
+
+        int soma = 0;
+        int numeroTemp = numero;
+        int quantDigitos = String.valueOf(numero).length();
+
+        while (numeroTemp > 0) {
+            int digito = numeroTemp % 10;
+            soma += Math.pow(digito, quantDigitos);
+            numeroTemp /= 10;
+        }
+
+        if (soma == numero) {
+            System.out.println("O número " + numero + " é um número de Armstrong.");
+        } else {
+            System.out.println("O número " + numero + " não é um número de Armstrong.");
+        }
+
+        sc.close();
+    }
+}

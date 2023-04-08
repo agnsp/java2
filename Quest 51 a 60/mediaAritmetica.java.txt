@@ -1,0 +1,27 @@
+/*
+ * 
+53. Escreva um programa que leia uma sequência de números
+e determine a média aritmética deles.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class mediaAritmetica {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite a quantidade de números: ");
+        int quantidade = scanner.nextInt();
+
+        double soma = 0;
+        for (int i = 1; i <= quantidade; i++) {
+            System.out.print("Digite o número " + i + ": ");
+            double numero = scanner.nextDouble();
+            soma += numero;
+        }
+
+        double media = soma / quantidade;
+        System.out.println("A média aritmética é: " + media);
+    }
+}

@@ -1,0 +1,31 @@
+/*
+ * 9 - Escreva um programa que leia um número inteiro e imprima a 
+sequência de Fibonacci até o número informado. Utilize um loop while
+e estruturas condicionais.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class seqFibonacci {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Lê o número inteiro do usuário
+        System.out.print("Digite um número inteiro: ");
+        int num = input.nextInt();
+        
+        // Imprime a sequência de Fibonacci até o número informado
+        int a = 0;
+        int b = 1;
+        int c = 0;
+        System.out.println("Sequência de Fibonacci até " + num + ":");
+        System.out.print(a + " ");
+        while (c < num) {
+            System.out.print(b + " ");
+            c = a + b;
+            a = b;
+            b = c;
+        }
+    }
+}

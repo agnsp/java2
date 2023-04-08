@@ -1,0 +1,46 @@
+/*
+ * 67. Escreva um programa que leia uma matriz quadrada de ordem n (n > 1)
+e determine se ela é uma matriz de Toeplitz. Uma matriz de Toeplitz é uma
+matriz em que cada elemento diagonal principal é igual.
+ */
+package com.mycompany.poo2java;
+
+import java.util.Scanner;
+
+public class toeplitzMatrix {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // leitura da ordem da matriz
+        System.out.print("Digite a ordem da matriz quadrada: ");
+        int n = input.nextInt();
+
+        int[][] matriz = new int[n][n];
+
+        // leitura dos elementos da matriz
+        System.out.println("Digite os elementos da matriz:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matriz[i][j] = input.nextInt();
+            }
+        }
+
+        // verificação se é uma matriz de Toeplitz
+        boolean toeplitz = true;
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < n; j++) {
+                if (matriz[i][j] != matriz[i-1][j-1]) {
+                    toeplitz = false;
+                    break;
+                }
+            }
+        }
+
+        if (toeplitz) {
+            System.out.println("A matriz é de Toeplitz.");
+        } else {
+            System.out.println("A matriz não é de Toeplitz.");
+        }
+    }
+}
